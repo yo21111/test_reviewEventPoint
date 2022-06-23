@@ -29,7 +29,7 @@ public class ReviewController {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(IllegalArgumentException.class)
+    @ExceptionHandler(InvalidDataAccessApiUsageException.class)
     public ErrorDto argumentEx(InvalidDataAccessApiUsageException e) {
         e.printStackTrace();
         return new ErrorDto(e, e.getMessage(), LocalDate.now());
